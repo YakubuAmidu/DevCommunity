@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const config = require('config');
 const db = config.get('mongoURI');
 
-const connectDB = asyn() => {
+const connectDB = async () => {
     try {
        await mongoose.connect(db);
 
@@ -14,4 +14,4 @@ const connectDB = asyn() => {
     }
 }
 
-module.export connectDB;
+module.exports =  connectDB;
