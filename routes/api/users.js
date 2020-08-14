@@ -26,7 +26,7 @@ try {
 let user = await User.findOne({ email });
 
 if (user) {
-  res.status(400).json({ errors: [{ msg: "User already exist" }]});
+  return res.status(400).json({ errors: [{ msg: "User already exist" }]});
 }
 
 const avatar = gravatar.url(email, {
