@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-cont config = require('config');
+const config = require('config');
 
 module.exports = function(req, res, next) {
   // Get token from header
@@ -17,6 +17,6 @@ module.exports = function(req, res, next) {
     req.user = decoded.user;
     next();
   } catch(err) {
-
+   res.status(401).json({ msg: 'Token is not valid'});
   }
-}
+};
