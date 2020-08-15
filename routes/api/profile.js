@@ -61,20 +61,29 @@ if(bio) profileFields.bio = bio;
 if(status) profileFields.status = status;
 if(githubusername) profileFields.githubusername = githubusername;
 if (skills) {
-  profileFields.skills = skills.split(',').map(skills => skills.trim());
+  profileFields.skills = skills.split(',').map(skill => skill.trim());
 }
 
 // Build social object
-profileFields.social = {};
+profileFields.social = {}
 if (youtube) profileFields.social.youtube = youtube;
 if (twitter) profileFields.social.twitter = twitter;
 if (facebook) profileFields.social.facebook = facebook;
 if (linkedin) profileFields.social.linkedin = linkedin;
 if (instagram) profileFields.social.instagram = instagram;
 
-console.log(profileFields.social.twitter);
+try {
+ let profile = await Profile.findOne({ user: req.user.id });
 
-res.send('Hello');
+ if (profile) {
+   // update
+   profile = await Profile.findOneAndUpdate({ user: req.user.id},
+     { $set: profileFields }, { new: true });
+ }
+} catch(err) {
+  console.error(err.message);
+  res.status(500).send('Sever Error');
+}
 }
 );
 
