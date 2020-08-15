@@ -79,7 +79,14 @@ try {
    // update
    profile = await Profile.findOneAndUpdate({ user: req.user.id},
      { $set: profileFields }, { new: true });
+
+     return res.json(profile);
  }
+
+ profile = new Profile(profileFields);
+
+ await Profile.save();
+ res.json(profile);
 } catch(err) {
   console.error(err.message);
   res.status(500).send('Sever Error');
