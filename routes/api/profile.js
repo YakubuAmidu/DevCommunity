@@ -8,7 +8,7 @@ const User = require('../../models/User');
 // @route GET api/profile/me
 // @desc  Test current users profile
 // @access Public
-router.get('/', auth, async (req, res) => {
+router.get('/me', auth, async (req, res) => {
   try {
   const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['name', 'avatar']);
 
