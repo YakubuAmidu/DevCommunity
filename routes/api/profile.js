@@ -30,8 +30,27 @@ router.get('/me', auth, async (req, res) => {
 router.post('/', [ auth, [
   check('status', 'Status is required').not().isEmpty(),
   check('skills', 'skills is required').not().isEmpty()
-] ], (req, res) => {
+] ], async (req, res) => {
+const errors = validationResult(req);
+if(!errors.isEmpty()){
+  return res.status(400).json({ errors: errors.array() });
+}
 
-})
+const {
+  company,
+  website,
+  location,
+  bio,
+  status,
+  githubusername,
+  skills,
+  youtube,
+  facebook,
+  twitter,
+  instagram,
+  linkedin
+} = req.body;
+}
+);
 
 module.exports = router;
