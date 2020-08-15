@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const ProfileSchema = new mongoose.Schema({
   user: {
-    type: mongoose.Schema.types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
   company: {
@@ -60,11 +60,12 @@ const ProfileSchema = new mongoose.Schema({
   education: [
     {
       school: {
+        type: String,
         required: true
       },
       degree: {
         type: String,
-        require: true
+        required: true
       },
       fieldofstudy: {
         type: String,
@@ -103,4 +104,10 @@ const ProfileSchema = new mongoose.Schema({
       type: String
     }
   },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
+
+module.exports = Profile = mongoose.model('profile', ProfileSchema);
