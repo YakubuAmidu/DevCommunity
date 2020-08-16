@@ -157,6 +157,26 @@ const errors = validationResult(req);
 if (!errors.isEmpty()) {
   return res.status(400).json({ errors: errors.array() });
 }
+
+const {
+  title,
+  company,
+  location,
+  from,
+  to,
+  current,
+  description
+} = req.body;
+
+const newExp = {
+  title,
+  company,
+  location,
+  from,
+  to,
+  current,
+  description
+}
 });
 
 
