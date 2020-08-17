@@ -63,9 +63,26 @@ router.get('/:id', auth, async (req, res) => {
   res.json(post);
   } catch(err) {
     console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(4040).json({ msg: 'Post not found' });
+    }
     res.status(500).send('Server Error');
   }
 });
+
+// @route DELETE api/posts/:id
+// @desc  Delete all post
+// @access Private
+router.delete('/', auth, async (req, res) => {
+  try {
+  const posts = await Post.findByI(req.params.id);
+  res.json(posts);
+  } catch(err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 
 
 module.exports = router;
