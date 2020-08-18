@@ -76,9 +76,24 @@ router.get('/:id', auth, async (req, res) => {
 router.delete('/', auth, async (req, res) => {
   try {
   const posts = await Post.findByI(req.params.id);
-  res.json(posts);
+
+  if (!post) {
+    return res.status(404).json({ msg: 'Post not found' });
+  }
+
+  // Check user
+ if (post.user.toString() !== req.user.id) {
+   return res.status(401).json({ msg: 'User not authorized'});
+ }
+
+ await post.remove();
+
+  res.json({ msg: 'Post removed' });
   } catch(err) {
     console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Post not found' });
+    }
     res.status(500).send('Server Error');
   }
 });
