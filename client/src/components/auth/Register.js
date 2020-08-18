@@ -33,7 +33,12 @@ const Register = () => {
         };
 
         const body = JSON.stringify(newUser);
-      } catch (err) {}
+
+        const res = await axios.post('/api/users', body, config);
+        console.log(res.data);
+      } catch (err) {
+        console.error(err.response.data);
+      }
     }
   };
 
