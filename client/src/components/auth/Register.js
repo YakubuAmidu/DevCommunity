@@ -6,10 +6,10 @@ import PropTypes from 'prop-types';
 
 const Register = ({ setAlert }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password2: '',
+    name: ' ',
+    email: ' ',
+    password: ' ',
+    password2: ' ',
   });
 
   const { name, email, password, password2 } = formData;
@@ -30,7 +30,7 @@ const Register = ({ setAlert }) => {
     <Fragment>
       <h1 className='large text-primary'>Sign Up</h1>
       <p className='lead'>
-        <i className='fas fa-user'></i> Create Your Account
+        <i className='fas fa-user' /> Create Your Account
       </p>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
@@ -75,6 +75,7 @@ const Register = ({ setAlert }) => {
             minLength='6'
             value={password2}
             onChange={(e) => onChange(e)}
+            minLength='6'
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Register' />
