@@ -1,5 +1,5 @@
 import {
-  REGIST_SUCCESS,
+  REGISTER_SUCCESS,
   REGISTER_FAIL
 } from '../actions/types';
 
