@@ -72,7 +72,6 @@ const Register = ({ setAlert }) => {
             type='password'
             placeholder='Confirm Password'
             name='password2'
-            minLength='6'
             value={password2}
             onChange={(e) => onChange(e)}
             minLength='6'
