@@ -88,4 +88,8 @@ Register.propTypes = {
   register: PropTypes.func.isRequired
 };
 
-export default connect(null, { setAlert, register })(Register);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { setAlert, register })(Register);
