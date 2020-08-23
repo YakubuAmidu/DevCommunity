@@ -7,6 +7,12 @@ const PrivateRoute = ({ component: Component, ...res }) => {
   return <div></div>;
 };
 
-PrivateRoute.propTypes = {};
+PrivateRoute.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
 
-export default PrivateRoute;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps)(PrivateRoute);
