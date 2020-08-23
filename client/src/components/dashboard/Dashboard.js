@@ -6,7 +6,7 @@ import { getCurrentProfile } from '../../actions/profile';
 
 const Dashboard = ({
   getCurrentProfile,
-  auth,
+  auth: { user },
   profile: { profile, loading },
 }) => {
   useEffect(() => {
@@ -23,8 +23,6 @@ const Dashboard = ({
       </p>
     </Fragment>
   );
-
-  return <div>Dashboard</div>;
 };
 
 Dashboard.propTypes = {
