@@ -24,5 +24,7 @@ export default function (state = initialState, action) {
         error: payload,
         loading: false,
       };
+    default:
+      return state;
   }
 }
