@@ -44,7 +44,7 @@ const EditProfile = ({
       youtube: loading || !profile.social ? ' ' : profile.social.youtube,
       instagram: loading || !profile.social ? ' ' : profile.social.instagram,
     });
-  });
+  }, [loading]);
 
   const {
     company,
@@ -66,7 +66,7 @@ const EditProfile = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData, history, true);
   };
 
   return (
@@ -236,17 +236,17 @@ const EditProfile = ({
         )}
 
         <input type='submit' className='btn btn-primary my-1' />
-        <a className='btn btn-light my-1' href='dashboard.html'>
+        <Link className='btn btn-light my-1' to='/dashboard'>
           Go Back
-        </a>
+        </Link>
       </form>
     </Fragment>
   );
 };
 
-CreateProfile.prototypes = {
+EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
-  getCurrentProfile: ProptTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
 };
 
