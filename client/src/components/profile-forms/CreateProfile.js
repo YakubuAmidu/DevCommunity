@@ -1,10 +1,11 @@
 import React, { Fragment, useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { set } from 'mongoose';
+import { createProfile } from '../../actions/profile';
 
 const CreateProfile = (props) => {
-  const [formData, setFormDate] = useState({
+  const [formData, setFormData] = useState({
     company: '',
     website: ' ',
     location: ' ',
