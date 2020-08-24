@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { set } from 'mongoose';
 
 const CreateProfile = (props) => {
   const [formData, setFormDate] = useState({
@@ -35,6 +36,9 @@ const CreateProfile = (props) => {
     instagram,
   } = formData;
 
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   return (
     <Fragment>
       <h1 className='large text-primary'>Create Your Profile</h1>
@@ -45,7 +49,7 @@ const CreateProfile = (props) => {
       <small>* = required field</small>
       <form className='form'>
         <div className='form-group'>
-          <select name='status'>
+          <select name='status' value={status} onChange={(e) => onChange(e)}>
             <option value='0'>* Select Professional Status</option>
             <option value='Developer'>Developer</option>
             <option value='Junior Developer'>Junior Developer</option>
