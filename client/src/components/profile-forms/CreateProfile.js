@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../actions/profile';
 
-const CreateProfile = (props) => {
+const CreateProfile = ({ createProfile }) => {
   const [formData, setFormData] = useState({
     company: '',
     website: ' ',
@@ -215,6 +215,8 @@ const CreateProfile = (props) => {
   );
 };
 
-CreateProfile.prototypes = {};
+CreateProfile.prototypes = {
+  createProfile: PropTypes.func.isRequired,
+};
 
-export default CreateProfile;
+export default connect(null, { createProfile })(CreateProfile);
