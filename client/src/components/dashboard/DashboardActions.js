@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lin } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const DashboardActions = () => {
   return (
