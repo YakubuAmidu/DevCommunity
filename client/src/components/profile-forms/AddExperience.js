@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
+import { STATES } from 'mongoose';
 
 const AddExperience = () => {
   const [formData, setFormData] = useState({
@@ -71,7 +72,17 @@ const AddExperience = () => {
         </div>
         <div class='form-group'>
           <p>
-            <input type='checkbox' name='current' value='' /> Current Job
+            <input
+              type='checkbox'
+              name='current'
+              checked={current}
+              value={current}
+              onChange={(e) => {
+                setFormData({ ...formData, current: !current });
+                toggleDisabled(!toggleDisabled);
+              }}
+            />{' '}
+            Current Job
           </p>
         </div>
         <div class='form-group'>
