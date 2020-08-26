@@ -24,24 +24,24 @@ const Education = ({ education }) => {
 
   return (
     <Fragment>
-      <h2 className='my-2'>Experience Credentials</h2>
+      <h2 className='my-2'>Education Credentials</h2>
       <table className='table'>
         <thead>
           <tr>
-            <th>Company</th>
-            <th className='hide-sm'>Title</th>
+            <th>School</th>
+            <th className='hide-sm'>Degree</th>
             <th className='hide-sm'>Years</th>
             <th />
           </tr>
         </thead>
-        <tbody>{experiences}</tbody>
+        <tbody>{educations}</tbody>
       </table>
     </Fragment>
   );
 };
 
-Experience.propTypes = {
-  experiences: PropTypes.func.isRequired,
+Education.propTypes = {
+  education: PropTypes.func.isRequired,
 };
 
-export default Experience;
+export default Education;
