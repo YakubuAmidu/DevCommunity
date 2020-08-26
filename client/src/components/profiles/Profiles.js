@@ -4,8 +4,12 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getProfiles } from '../../actions/profile';
 
-const Profiles = (props) => {
-  return <div></div>;
+const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
+  userEffect(() => {
+    getProfiles();
+  }, []);
+
+  return <div />;
 };
 
 Profiles.propTypes = {
