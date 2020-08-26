@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const Experience = ({ experience }) => {
   const experiences = experience.map((exp) => (
-    <td key={exp_id}>
+    <tr key={exp_id}>
       <td>{exp.company}</td>
       <td className='hide-sm'>{exp.title}</td>
       <td>
@@ -16,7 +16,10 @@ const Experience = ({ experience }) => {
           <Moment format='YYYY/MM/DD'>{exp.to}</Moment>
         )}
       </td>
-    </td>
+      <td>
+        <button className='btn btn-danger'>Delete</button>
+      </td>
+    </tr>
   ));
 
   return (
@@ -37,6 +40,8 @@ const Experience = ({ experience }) => {
   );
 };
 
-Experience.propTypes = {};
+Experience.propTypes = {
+  experiences: PropTypes.func.isRequired,
+};
 
 export default Experience;
