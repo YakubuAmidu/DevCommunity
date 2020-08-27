@@ -14,6 +14,9 @@ const ProfileExperience = ({
     <p>
       <Strong>Position </Strong> {title}
     </p>
+    <p>
+      <Strong>Description: </Strong> {description}
+    </p>
   </div>
 );
 
