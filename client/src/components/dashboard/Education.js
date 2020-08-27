@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { deleteEducation } from '../../actions/profile';
 
@@ -47,7 +48,7 @@ const Education = ({ education, deleteEducation }) => {
 };
 
 Education.propTypes = {
-  education: PropTypes.func.isRequired,
+  education: PropTypes.array.isRequired,
   deleteEducation: PropTypes.func.isRequired,
 };
 
