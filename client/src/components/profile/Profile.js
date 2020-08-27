@@ -12,7 +12,7 @@ const Profile = ({
 }) => {
   useEffect(() => {
     getProfileById(match.params.id);
-  });
+  }, [getProfileById]);
 
   return <div>Profile</div>;
 };
