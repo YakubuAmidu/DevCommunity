@@ -2,9 +2,18 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
-import { getProfileById } from '../../actions/profile';
+import { getProfileById, getProfiles } from '../../actions/profile';
 
-const Profile = () => {
+const Profile = ({
+  getProfileById,
+  profile: { profile, loading },
+  auth,
+  match,
+}) => {
+  useEffect(() => {
+    getProfileById(match.params.id);
+  });
+
   return <div>Profile</div>;
 };
 
