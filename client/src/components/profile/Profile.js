@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getProfileById, getProfiles } from '../../actions/profile';
@@ -16,7 +17,22 @@ const Profile = ({
 
   return (
     <Fragment>
-      {profile === null || loading ? <Spinner /> : <Fragment>profile</Fragment>}
+      {profile === null || loading ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+          <Link to='/profiles' className='btn btn-light'>
+            Back to Profiles
+          </Link>
+          {auth.isAuthenticated &&
+            auth.loading === false &&
+            auth.user.id === profile.user_id && (
+              <Link to='/edit-profile' className='btn btn-dark'>
+                Edit Profile
+              </Link>
+            )}
+        </Fragment>
+      )}
     </Fragment>
   );
 };
