@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Spinner from '../layout/Spinner';
 import { getPosts } from '../../actions/post';
-import { getProfileById } from '../../actions/profile';
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {

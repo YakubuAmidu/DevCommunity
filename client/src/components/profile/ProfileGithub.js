@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getGithubRepos } from '../../actions/profile';
-import { get } from 'config';
 
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
   userEffect(() => {
@@ -54,7 +53,7 @@ ProfileGithub.propTypes = {
   username: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = (state = {
+const mapStateToProps = (state) => ({
   repos: state.profile.repos,
 });
 
