@@ -8,7 +8,7 @@ const EditProfile = ({
   profile: { profile, loading },
   createProfile,
   getCurrentProfile,
-  history,
+  history
 }) => {
   const [formData, setFormData] = useState({
     company: '',
@@ -250,7 +250,7 @@ EditProfile.propTypes = {
   profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   profile: state.profile,
 });
 
