@@ -8,6 +8,13 @@ const Posts = (props) => {
   return <div></div>;
 };
 
-Posts.propTypes = {};
+Posts.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired,
+};
 
-export default Posts;
+const mapStateToProps = (state) => ({
+  post: state.post,
+});
+
+export default connect(mapStateToProps, { getPosts })(Posts);
