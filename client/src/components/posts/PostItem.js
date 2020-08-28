@@ -40,6 +40,7 @@ const PostItem = ({ addLike, removeLike, deletePost, auth, post: { _id, text, na
             </Link>
             {!auth.loading && user === auth.user._id && (
               <button
+              onClick={e => deletePost(_id)}
               type="button"
               class="btn btn-danger"
             >
