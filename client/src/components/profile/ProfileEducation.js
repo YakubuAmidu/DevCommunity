@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
 const ProfileEducation = ({
@@ -23,7 +24,7 @@ const ProfileEducation = ({
   </div>
 );
 
-ProfileEducation.PropTypes = {
+ProfileEducation.propTypes = {
   education: PropTypes.array.isRequired,
 };
 
