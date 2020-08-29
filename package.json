@@ -4,6 +4,8 @@
   "description": "Social network for developers",
   "main": "sever.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
